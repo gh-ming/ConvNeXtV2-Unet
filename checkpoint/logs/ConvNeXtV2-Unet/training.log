@@ -1,0 +1,42 @@
+2024-11-12 21:11:46,186 Train size: 2469, Validation size: 1059
+2024-11-12 21:11:46,187 Model: ConvNeXtV2-Unet, Classes: 3, Batch size: 4, Learning rate: 0.0002, Epochs: 40
+2024-11-12 21:11:46,187 Image size: 512x4
+2024-11-12 21:11:46,187 Class names: ['Background', 'Wheat', 'Corn', 'Sunflower', 'Watermelon', 'Tomato', 'Onion', 'Zucchini']
+2024-11-12 21:11:46,187 Pretrained weights path: E:\2024Work\CCFA_基于航片的玉米异常检测\ConvNeXtV2-Unet\checkpoint\pretrain\convnextv2_femto_1k_224_fcmae.pt
+2024-11-12 21:11:46,187 Random seed: 42
+2024-11-12 21:15:32,546 Train size: 2469, Validation size: 1059
+2024-11-12 21:15:32,546 Model: ConvNeXtV2-Unet, Classes: 3, Batch size: 4, Learning rate: 0.0002, Epochs: 40
+2024-11-12 21:15:32,560 Image size: 512x4
+2024-11-12 21:15:32,560 Class names: ['Background', 'Wheat', 'Corn', 'Sunflower', 'Watermelon', 'Tomato', 'Onion', 'Zucchini']
+2024-11-12 21:15:32,560 Pretrained weights path: E:\2024Work\CCFA_基于航片的玉米异常检测\ConvNeXtV2-Unet\checkpoint\pretrain\convnextv2_femto_1k_224_fcmae.pt
+2024-11-12 21:15:32,560 Random seed: 42
+2024-11-12 21:15:32,564 ------------------------------Epoch 0 training started------------------------------
+2024-11-12 21:18:35,248 Train size: 2469, Validation size: 1059
+2024-11-12 21:18:35,248 Model: ConvNeXtV2-Unet, Classes: 8, Batch size: 4, Learning rate: 0.0002, Epochs: 40
+2024-11-12 21:18:35,248 Image size: 512x512
+2024-11-12 21:18:35,248 Class names: ['Background', 'Wheat', 'Corn', 'Sunflower', 'Watermelon', 'Tomato', 'Onion', 'Zucchini']
+2024-11-12 21:18:35,248 Pretrained weights path: E:\2024Work\CCFA_基于航片的玉米异常检测\ConvNeXtV2-Unet\checkpoint\pretrain\convnextv2_femto_1k_224_fcmae.pt
+2024-11-12 21:18:35,248 Random seed: 42
+2024-11-12 21:18:35,251 ------------------------------Epoch 0 training started------------------------------
+2024-11-12 21:20:04,641 Train size: 2469, Validation size: 1059
+2024-11-12 21:20:04,641 Model: ConvNeXtV2-Unet, Classes: 8, Batch size: 4, Learning rate: 0.0002, Epochs: 40
+2024-11-12 21:20:04,641 Image size: 512x512
+2024-11-12 21:20:04,641 Class names: ['Background', 'Wheat', 'Corn', 'Sunflower', 'Watermelon', 'Tomato', 'Onion', 'Zucchini']
+2024-11-12 21:20:04,641 Pretrained weights path: E:\2024Work\CCFA_基于航片的玉米异常检测\ConvNeXtV2-Unet\checkpoint\pretrain\convnextv2_femto_1k_224_fcmae.pt
+2024-11-12 21:20:04,641 Random seed: 42
+2024-11-12 21:20:04,650 ------------------------------Epoch 0 training started------------------------------
+2024-11-12 21:40:52,294 Epoch [1/40], Loss: 0.8625602610770938
+2024-11-12 21:40:52,294 ------------------------------Epoch 0 validation started------------------------------
+2024-11-12 21:42:02,817 +------------+----------+----------+--------+
+|   Class    | Accuracy | F1 Score |  IOU   |
++------------+----------+----------+--------+
+| Background |  0.7663  |  0.8386  | 0.7221 |
+|   Wheat    |  0.9283  |  0.829   | 0.708  |
+|    Corn    |   0.0    |   0.0    |  0.0   |
+| Sunflower  |   nan    |   nan    |  nan   |
+| Watermelon |   nan    |   nan    |  nan   |
+|   Tomato   |   nan    |   nan    |  nan   |
+|   Onion    |   nan    |   nan    |  nan   |
+|  Zucchini  |   nan    |   nan    |  nan   |
++------------+----------+----------+--------+
+2024-11-12 21:42:02,817 Validation AVG Accuracy: nan, F1 Score: nan, IOU: nan, Kappa: 0.6658

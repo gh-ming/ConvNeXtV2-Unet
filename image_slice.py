@@ -2,7 +2,8 @@ from module import slice
 
 if __name__ == '__main__':
     print(f"0-多波段格网裁剪、1-单波段格网裁剪、2-多波段随机裁剪、3-单波段随机裁剪、4-制作深度学习样本-格网裁剪、5-制作深度学习样本-随机裁剪")
-    slice_type = input(f"请选择：")
+    # slice_type = input(f"请选择：")
+    slice_type = 4
     if int(slice_type) == 0:
         # 参数设置
         image_path = input(f"请输入待裁剪多波段影像路径：")
@@ -44,11 +45,11 @@ if __name__ == '__main__':
         # slice_size = int(input(f"请输入裁剪块大小："))
         # edge_fill = bool(int(input(f"是否进行边缘填充（0/1）：")))
         # nodata_ignore = bool(int(input(f"是否忽略nodata值（0/1）：")))
-        image_path = r'E:\2024Work\CCFA_基于航片的玉米异常检测\CCFBDCI\CCF大数据与计算智能大赛数据集\result.tif'
-        band_path = r'E:\2024Work\CCFA_基于航片的玉米异常检测\CCFBDCI\CCF大数据与计算智能大赛数据集\standard.tif'
-        image_slice_dir = r'E:\2024Work\CCFA_基于航片的玉米异常检测\submission\data\img'
-        band_slice_dir = r'E:\2024Work\CCFA_基于航片的玉米异常检测\submission\data\label'
-        slice_size = 512
+        image_path = r'E:\2024Work\陆表赛道-基于高分卫星的农作物精细识别技术\陆表赛道-基于高分卫星的农作物精细识别技术\初赛\train\GF2_train_image\GF2_train_image.tif'
+        band_path = r'E:\2024Work\陆表赛道-基于高分卫星的农作物精细识别技术\陆表赛道-基于高分卫星的农作物精细识别技术\初赛\train\GF2_train_label\GF2_train_label.tif'
+        image_slice_dir = r'E:\2024Work\陆表赛道-基于高分卫星的农作物精细识别技术\data\img'
+        band_slice_dir = r'E:\2024Work\陆表赛道-基于高分卫星的农作物精细识别技术\data\label'
+        slice_size = 224
         edge_fill = True
         nodata_ignore = True
         slice.deeplr_grid_slice(image_path, band_path, image_slice_dir, band_slice_dir, slice_size, edge_fill=edge_fill,nodata_ignore=nodata_ignore)

@@ -5,13 +5,16 @@ ConvNeXtV2-Unet 结合 ConvNeXtV2 进行特征提取和 U-Net 进行图像分割
 此项目用于玉米以及异常检测，针对航拍数据读取和精度评价做了对应优化，但针对异常玉米仍存在部分问题。
 
 ![alt text](86620c1db9a966555802e774f23f204.png)
-
+## What's New
+- 2024.11.12：增加日志、数据增强部分。
 
 ## 使用方法
 要使用该模型进行异常检测，请按照以下步骤操作：
-1. 准备您的航拍图像数据集。
-2. 按要求预处理图像。
-3. 使用提供的脚本运行模型。
+1. Dataset：准备数据集，根据需求使用image_slice进行图片切片。
+2. Dataloader：在train_ConvNext中修改你想要的data_aug和bs等超参。
+3. train_ConvNext：对模型进行训练和评估，并将结果展示在tensorboard中。
+4. predict：对新的图像进行预测，大图会切分后分块预测。
+5. Accuracy：实现对预测结果的评估，包括ACC，IOU，F1，kappa等。
 
 ## 示例
 ```python

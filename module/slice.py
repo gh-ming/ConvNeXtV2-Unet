@@ -3,6 +3,12 @@ import random
 import numpy as np
 from alive_progress import alive_bar
 from module.image import *
+def check_dir(dir_path):
+    """
+    检查文件夹是否存在，不存在则创建
+    """
+    if not os.path.exists(dir_path):
+        os.makedirs(dir_path)
 
 def cal_single_band_slice(single_band_data, slice_size=1000):
     """
@@ -218,8 +224,17 @@ def deeplr_grid_slice(image_path, band_path, image_slice_dir, band_slice_dir, sl
     :param slice_size: 裁剪大小
     :return:
     """
+    check_dir(image_slice_dir)
+    check_dir(band_slice_dir)
     image, image_info, image_data = read_multi_bands(image_path)
     band, band_info, band_data = read_single_band(band_path)
+
+    # if image_data.shape[1:] != band_data.shape:
+    #     raise ValueError("The size of the image and label do not match.")
+    
+    # Padding the band_data matrix with an extra row and column filled with zeros
+    band_data = np.pad(band_data, ((0, 1), (0, 1)), mode='constant', constant_values=0)
+
     # 计算分块的四角行列号
     slice_index = cal_single_band_slice(image_data[0, :, :], slice_size=slice_size)
     # 执行裁剪
@@ -230,6 +245,8 @@ def deeplr_grid_slice(image_path, band_path, image_slice_dir, band_slice_dir, sl
             # 忽略nodata值
             if nodata_ignore:
                 if np.all(slice_data == image_info[5]):
+                    continue
+                if  np.all(slice_data == 0):
                     continue
             slice_geotrans = coordtransf(slice_element[2], slice_element[0], image_info[3])  # 转换仿射坐标
             img_path = os.path.join(image_slice_dir, str(i) + '.tif')

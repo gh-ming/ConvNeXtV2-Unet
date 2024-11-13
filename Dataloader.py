@@ -3,8 +3,11 @@ from osgeo import gdal
 import torch
 from module.image import *
 import time
+from torch.utils.data import Dataset
 
-class CustomDataset(torch.utils.data.Dataset):
+
+
+class CustomDataset(Dataset):
     def __init__(self, image_dir, label_dir, transform=None):
         self.image_dir = image_dir
         self.label_dir = label_dir
@@ -27,10 +30,20 @@ class CustomDataset(torch.utils.data.Dataset):
         label_info = label.read_img_info()
         # 读取影像矩阵
         label_data = label.read_img_data()
+        label_data = label_data.reshape(1, label_data.shape[0], label_data.shape[1])
+
+        # (C, H, W) -> (H, W, C)
+        image_data = image_data.transpose(1, 2, 0)
+        label_data = label_data.transpose(1, 2, 0)
         
         if self.transform:
-            image_data = self.transform(image_data)
-            label_data = self.transform(label_data)
+            augmented = self.transform(image=image_data, mask=label_data)
+            image_data = augmented['image']
+            label_data = augmented['mask']
+        
+        # (H, W, C) -> (C, H, W)
+        image_data = image_data.transpose(2, 0, 1)
+        label_data = label_data.transpose(2, 0, 1)[0]
         
         # 对齐模型参数
         image_data = image_data.astype('float32')
